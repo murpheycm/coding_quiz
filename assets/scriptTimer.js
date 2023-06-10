@@ -1,13 +1,12 @@
 //Timer Element
-
     var timerEl = document.getElementById('countdown');
-    var mainEl = document.getElementById('main');
+    var gameOverMsg = document.getElementById('gameOverMsg');
 
-    var message ='GAME OVER';
+    var message ='GAME OVER ';
     var words = message.split(' ');
 
     function countdown() {
-        var timeLeft = 60;
+        var timeLeft = 2;
         var timeInterval = setInterval (function () {
             if(timeLeft > 1){
             timerEl.textContent = timeLeft + " seconds";
@@ -32,7 +31,7 @@
             clearInterval(msgInterval);
         } else {
             // Display one word of the message
-            mainEl.textContent = words[wordCount];
+            gameOverMsg.textContent = words[wordCount];
             wordCount++;
         }
         }, 1000);

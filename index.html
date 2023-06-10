@@ -17,16 +17,35 @@
     
     <!-- Timer element -->
     <section class="container" id="timer">
+        <h1 id="gameOverMsg"></h1>
         <h4 id="timerText">Time Remaining: <span id="countdown"></span></h4>
-
-
-       
-
     </section>
 
     <!-- View High Scores -->
-
-   
+    <section class="container" id="highScores">
+        <button popovertarget="popover">View High Scores</button>
+            <table popover id="popover">
+                    <tr>
+                        <th></th>
+                        <th>Initals</th>
+                        <th>Score</th>
+                    </tr>
+                    <tr>
+                        <td id="first">1st </td>
+                        <td id="firstInitial"></td>
+                        <td id="firstScore"></td>
+                    </tr>
+                    <tr>
+                        <td id="second">2nd </td>
+                        <td id="secondInitial"></td>
+                        <td id="secondScore"></td>
+                    </tr>
+                    <tr>
+                        <td id="third">3rd </td>
+                        <td id="thirdInitial"></td>
+                        <td id="thirdScore"></td>
+                    </tr>
+            </table>
 
 
 
@@ -39,7 +58,8 @@
 
 
 
-    <script src="./assets/script.js"></script>
+    <script src="./assets/scriptTimer.js"></script>
+    <script src="./assets/scriptScore.js"></script>
 
 </body>
 
