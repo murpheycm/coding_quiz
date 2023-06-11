@@ -80,10 +80,6 @@ let questions = [
     }
 ];
 
-
-
-
-
 //Quiz variables
 const lastQuestion = questions.length - 1;
 let runningQuestion = 0;
@@ -99,20 +95,18 @@ function renderQuestion(){
     choiceA.innerHTML = q.choiceA;
     choiceB.innerHTML = q.choiceB;
     choiceC.innerHTML = q.choiceC;
+
+    check.innerHTML=" ";
 };
 
-
-
-
-
-// start quiz function
+//Start quiz function
 function startQuiz(){
     renderQuestion();
     renderCounter();
     TIMER = setInterval(renderCounter,1000); // 1000ms = 1s
 };
 
-//countdown
+//Countdown
 function renderCounter(){
     if(count >= 0){
         counter.innerHTML = count;
@@ -125,13 +119,12 @@ function renderCounter(){
             clearInterval(TIMER);
         }
     }
+    
 };
+
 startBtn.addEventListener("click",startQuiz);
 
-
-
-
-// checkAnwer
+//Check answer
 function checkAnswer(answer){
     if( answer == questions[runningQuestion].correct){
         answerIsCorrect();
@@ -149,26 +142,16 @@ function checkAnswer(answer){
     };
 };
 
-
-
-
-
-
-
-
-
-
-
-// answer is correct
+//Correct answer
 function answerIsCorrect(){
     document.getElementById(runningQuestion);
     document.getElementById("check").innerHTML = "Correct!!";
-
 };
 
-// answer is Wrong
+//Wrong answer
 function answerIsWrong(){
     document.getElementById(runningQuestion);
     document.getElementById("check").innerHTML = "Wrong!!";
-}
+    count-=5;
+};
 
