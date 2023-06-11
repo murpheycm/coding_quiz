@@ -16,10 +16,10 @@
     </section>
     
 <!-- Timer element -->
-    <section class="container" id="timer">
+    <!-- <section class="container" id="timer">
         <h1 id="gameOverMsg"></h1>
         <h4 id="timerText">Time Remaining: <span id="countdown"></span></h4>
-    </section>
+    </section> -->
 
 <!-- View High Scores -->
     <section class="container" id="highScores">
@@ -50,26 +50,12 @@
 
 <!-- Questions -->
     <section class="container">
-          
-        <!-- <div id="question"></div>
-        <div id="choices">
-
-            <div class="choice" id="A" onclick="checkAnswer('A')"></div>
-
-            <div class="choice" id="B" onclick="checkAnswer('B')"></div>
-
-            <div class="choice" id="C" onclick="checkAnswer('C')"></div>
-
-        </div> -->
-    
-
-        
             <div id="quiz">
                 <div id="question"></div>
                 <div id="choices">
-                    <div class="choice" id="A" onclick="checkAnswer('A')"></div>
-                    <div class="choice" id="B" onclick="checkAnswer('B')"></div>
-                    <div class="choice" id="C" onclick="checkAnswer('C')"></div>
+                    <button class="choice" id="A" onclick="checkAnswer('A')"></button>
+                    <button class="choice" id="B" onclick="checkAnswer('B')"></button>
+                    <button class="choice" id="C" onclick="checkAnswer('C')"></button>
                 </div>
                 <div id="check"></div>
                 <div id="timer">
@@ -78,7 +64,6 @@
                     <div id="timeGauge"></div>
                 </div>
             </div>
-            
     </section>
     
 

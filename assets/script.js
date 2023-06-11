@@ -47,7 +47,6 @@
 
 // Question Elements
 
-// select all elements
 const start = document.getElementById("start");
 const quiz = document.getElementById("quiz");
 const question = document.getElementById("question");
@@ -58,7 +57,7 @@ const counter = document.getElementById("counter");
 const timeGauge = document.getElementById("timeGauge");
 
 
-// create our questions
+//Questions:
 let questions = [
     {
         question : "What does HTML stand for?",
@@ -85,37 +84,35 @@ let questions = [
 
 
 
-// create some variables
+//Quiz variables
 const lastQuestion = questions.length - 1;
 let runningQuestion = 0;
 let count = 60;
 let TIMER;
 
 
-// render a question
+//Display question
 function renderQuestion(){
     let q = questions[runningQuestion];
     
-    question.innerHTML = "<p>"+ q.question +"</p>";
+    question.innerHTML = "<h1>"+ q.question +"</h1>";
     choiceA.innerHTML = q.choiceA;
     choiceB.innerHTML = q.choiceB;
     choiceC.innerHTML = q.choiceC;
 };
 
-startBtn.addEventListener("click",startQuiz);
 
 
 
 
-
-// start quiz
+// start quiz function
 function startQuiz(){
     renderQuestion();
     renderCounter();
     TIMER = setInterval(renderCounter,1000); // 1000ms = 1s
 };
 
-// counter render
+//countdown
 function renderCounter(){
     if(count >= 0){
         counter.innerHTML = count;
@@ -129,6 +126,9 @@ function renderCounter(){
         }
     }
 };
+startBtn.addEventListener("click",startQuiz);
+
+
 
 
 // checkAnwer
@@ -136,28 +136,39 @@ function checkAnswer(answer){
     if( answer == questions[runningQuestion].correct){
         answerIsCorrect();
     }else{
-        // var adjCount = count-5;
-        // adjCount--;
         answerIsWrong();
     };
 
     if(runningQuestion < lastQuestion){
         runningQuestion++;
-        renderQuestion();
+        setTimeout(renderQuestion, 1000);
     }else{
+      setTimeout(() => {
         location.reload();
+      }, 1000);
     };
 };
+
+
+
+
+
+
+
+
+
+
 
 // answer is correct
 function answerIsCorrect(){
     document.getElementById(runningQuestion);
     document.getElementById("check").innerHTML = "Correct!!";
+
 };
 
 // answer is Wrong
 function answerIsWrong(){
     document.getElementById(runningQuestion);
     document.getElementById("check").innerHTML = "Wrong!!";
-};
+}
 
