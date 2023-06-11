@@ -1,51 +1,4 @@
-// //Timer Element
-//     var timerEl = document.getElementById('countdown');
-    // var gameOverMsg = document.getElementById('gameOverMsg');
-
-    // var message ='GAME OVER ';
-    // var words = message.split(' ');
-
-//     function countdown() {
-//         var timeLeft = 2;
-//         var timeInterval = setInterval (function () {
-//             if(timeLeft > 1){
-//             timerEl.textContent = timeLeft + " seconds";
-//             timeLeft--;
-//             } else if(timeLeft === 1){
-//                 timerEl.textContent = timeLeft + " second";
-//                 timeLeft--;
-//             } else {
-//                 timerEl.textContent = '';
-//                 clearInterval(timeInterval);
-//                 displayMessage();
-//             }
-//         },1000);
-//         startBtn.addEventListener("click", countdown);
-//       }
-
-// //Game Over Message
-    // function displayMessage() {
-    //     var wordCount = 0;
-    //     var msgInterval = setInterval(function () {
-    //     // If there are no more words left in the message
-    //     if (words[wordCount] === undefined) {
-    //         clearInterval(msgInterval);
-    //     } else {
-    //         // Display one word of the message
-    //         gameOverMsg.textContent = words[wordCount];
-    //         wordCount++;
-    //     }
-    //     }, 1000);
-    //   };
-    
-//     startBtn.addEventListener("click", countdown);
-
-
-
-
-
-
-// Question Elements
+// Quiz constants
 
 const start = document.getElementById("start");
 const quiz = document.getElementById("quiz");
@@ -54,8 +7,8 @@ const choiceA = document.getElementById("A");
 const choiceB = document.getElementById("B");
 const choiceC = document.getElementById("C");
 const counter = document.getElementById("counter");
-const timeGauge = document.getElementById("timeGauge");
-
+// const timeGauge = document.getElementById("timeGauge");
+// const scoreDiv = document.getElementById("scoreContainer");
 
 //Questions:
 let questions = [
@@ -99,7 +52,7 @@ function renderQuestion(){
     check.innerHTML=" ";
 };
 
-//Start quiz function
+//Start --> Display first question and start timer
 function startQuiz(){
     renderQuestion();
     renderCounter();
@@ -117,14 +70,24 @@ function renderCounter(){
             renderQuestion();
         }else{
             clearInterval(TIMER);
-        }
-    }
-    
+        };
+    };
 };
 
-startBtn.addEventListener("click",startQuiz);
+//Correct answer conditions
+function answerIsCorrect(){
+  document.getElementById(runningQuestion);
+  document.getElementById("check").innerHTML = "Correct!!";
+};
 
-//Check answer
+//Wrong answer conditions
+function answerIsWrong(){
+  document.getElementById(runningQuestion);
+  document.getElementById("check").innerHTML = "Wrong!!";
+  count-=5;
+};
+
+//Check answer loop function
 function checkAnswer(answer){
     if( answer == questions[runningQuestion].correct){
         answerIsCorrect();
@@ -136,22 +99,17 @@ function checkAnswer(answer){
         runningQuestion++;
         setTimeout(renderQuestion, 1000);
     }else{
-      setTimeout(() => {
-        location.reload();
-      }, 1000);
+      // setTimeout(() => {
+        finalScore();
+      // }, 1000);
     };
 };
 
-//Correct answer
-function answerIsCorrect(){
-    document.getElementById(runningQuestion);
-    document.getElementById("check").innerHTML = "Correct!!";
-};
+function finalScore () {
+  document.getElementById('timeText').innerHTML = count;
+  clearInterval(TIMER);
+}
 
-//Wrong answer
-function answerIsWrong(){
-    document.getElementById(runningQuestion);
-    document.getElementById("check").innerHTML = "Wrong!!";
-    count-=5;
-};
+
+startBtn.addEventListener("click",startQuiz);
 

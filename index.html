@@ -14,12 +14,6 @@
         <h4>Be careful! Time will be subtracted in live time for each wrong answer!</h4>
         <button class="start" id="startBtn">Start Quiz!</button>
     </section>
-    
-<!-- Timer element -->
-    <!-- <section class="container" id="timer">
-        <h1 id="gameOverMsg"></h1>
-        <h4 id="timerText">Time Remaining: <span id="countdown"></span></h4>
-    </section> -->
 
 <!-- View High Scores -->
     <section class="container" id="highScores">
@@ -46,9 +40,19 @@
                         <td id="thirdScore"></td>
                     </tr>
             </table>
-    </section>        
+            
+    </section>  
+    <div id="score">
+        <form>
+            <label for="initials">Initials:</label><br>
+            <input type="text" id="initials" name="initials" value=" "><br>
+            <label for="time">Final Time:<span id="timeText"></span></label><br>
+            
+            <input type="submit" value="Submit">
+          </form> 
+    </div>      
 
-<!-- Questions -->
+<!-- Questions and Countdown Timer -->
     <section class="container">
             <div id="quiz">
                 <div id="question"></div>
@@ -60,8 +64,8 @@
                 <div id="check"></div>
                 <div id="timer">
                     <div id="counter"></div>
-                    <div id="btimeGauge"></div>
-                    <div id="timeGauge"></div>
+                    <!-- <div id="btimeGauge"></div> -->
+                    <!-- <div id="timeGauge"></div> -->
                 </div>
             </div>
     </section>
