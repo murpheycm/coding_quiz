@@ -7,21 +7,21 @@
     <meta charset="UTF-8">
 </head>
 <body>
-    <!-- Start Quiz -->
+<!-- Start Quiz -->
     <section class="start">
         <h1>Coding Quiz Challenge</h1>
         <h3>Try to complete all the questions correctly within the allotted time!</h3>
         <h4>Be careful! Time will be subtracted in live time for each wrong answer!</h4>
-        <button class="button" id="startBtn" onclick="countdown()">Start Quiz!</button>
+        <button class="start" id="startBtn">Start Quiz!</button>
     </section>
     
-    <!-- Timer element -->
+<!-- Timer element -->
     <section class="container" id="timer">
         <h1 id="gameOverMsg"></h1>
         <h4 id="timerText">Time Remaining: <span id="countdown"></span></h4>
     </section>
 
-    <!-- View High Scores -->
+<!-- View High Scores -->
     <section class="container" id="highScores">
         <button popovertarget="popover">View High Scores</button>
             <table popover id="popover">
@@ -46,20 +46,49 @@
                         <td id="thirdScore"></td>
                     </tr>
             </table>
+    </section>        
+
+<!-- Questions -->
+    <section class="container">
+          
+        <!-- <div id="question"></div>
+        <div id="choices">
+
+            <div class="choice" id="A" onclick="checkAnswer('A')"></div>
+
+            <div class="choice" id="B" onclick="checkAnswer('B')"></div>
+
+            <div class="choice" id="C" onclick="checkAnswer('C')"></div>
+
+        </div> -->
+    
+
+        
+            <div id="quiz">
+                <div id="question"></div>
+                <div id="choices">
+                    <div class="choice" id="A" onclick="checkAnswer('A')"></div>
+                    <div class="choice" id="B" onclick="checkAnswer('B')"></div>
+                    <div class="choice" id="C" onclick="checkAnswer('C')"></div>
+                </div>
+                <div id="check"></div>
+                <div id="timer">
+                    <div id="counter"></div>
+                    <div id="btimeGauge"></div>
+                    <div id="timeGauge"></div>
+                </div>
+            </div>
+            
+    </section>
+    
 
 
 
-    <!-- Questions -->
 
 
-
-
-
-
-
-
-    <script src="./assets/scriptTimer.js"></script>
-    <script src="./assets/scriptScore.js"></script>
+<!-- JavaScript Files -->
+    <script src="./assets/script.js"></script>
+    
 
 </body>
 
