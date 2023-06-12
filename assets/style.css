@@ -1,40 +1,155 @@
-/* Start Elements */
-    .start {
-        text-align: center;
-    }
+/* Start Page Elements */
+body {
+    background-color: rgb(4, 70, 70);
+    color: rgb(236, 236, 236);
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 
-    #startBtn {
-        justify-content: center;
-    }
+}
+.start {
+    text-align: center;
+}
 
-/* High Score Table Popover */
+/* Start page header 'Coding Quiz Challenge' design */
+.start h1 {
+    font-family: 'Tilt Prism', cursive;
+    font-size: 500%;
+}
 
-    table {
-        border-collapse: collapse;
-        border-spacing: 0;
-        width: 30%;
-        border: 1px solid #ddd;
-    }
-    
-    th, td {
-        text-align: center;
-        padding: 16px;
-    }
-    
-    tr:nth-child(even) {
-        background-color: #f2f2f2;
-    }
+/* Start Quiz button design */
+#startBtn {
+    background-color: whitesmoke;
+    color: black;
+    border-radius:100%;
+    border: none;
+    font-size: 100%;
+    font-weight: bold;
+    text-transform: uppercase;
+    padding: 20px;
+    margin: 3%;
+}
 
-  /* Timer Countdown */
-    #timerText {
-        display: block;
-        text-align: right;
-        padding: 10px 150px;
-    }
-    #gameOverMsg {
-        text-align: center;
-        padding: 150px;
-    }
+/* View High Scores button design */
+#popBtn {
+    display: inline;
+    color: rgb(22, 21, 21);
+    border: none;
+    border-color: black;
+    padding: 15px;
+    font-size: 100%;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-decoration: underline;
+}
+
+#highScores {
+    background-color: whitesmoke;
+}
 
 
-  /* Timer Message */
+/* High Score Table Popover Design */
+table {
+    border-collapse: collapse;
+    border-spacing: 2;
+    width: 30%;
+    border: 3px solid #bbbaba;
+} 
+
+th, td {
+    text-align: center;
+    font-size: 150%;
+    font-style: bold;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    padding: 16px;
+    text-transform: uppercase;
+}
+
+tr:nth-child(even) {
+    background-color: #fae140;
+}
+
+/* Quiz questions and answers design */
+
+#quiz {
+    background-color: white;
+    color:black;
+    text-align: center;
+    padding: 20px 5px;
+    margin:auto;
+    flex-wrap: wrap;
+}
+
+#check {
+    font-weight: bold;
+    margin: auto;
+}
+
+#timer {
+    font-weight: bold;
+    font-size: 300%;
+    margin: auto;
+}
+
+#score {
+    margin: auto;
+    width: 10%;
+    font-size: 100%;
+}
+
+#A {
+    background-color: rgb(252, 144, 2);
+    border: none;
+    font-size: 100%;
+    margin: 1%;
+    padding: 1%;
+}
+
+#B {
+    background-color: rgb(88, 184, 89);
+    border: none;
+    font-size: 100%;
+    margin: 1%;
+    padding: 1%;
+}
+
+#C {
+    background-color: rgb(52, 167, 255);
+    border: none;
+    font-size: 100%;
+    margin: 1%;
+    padding: 1%;
+}
+
+#choices {
+    display: block;
+    flex-wrap: wrap;
+    border: none;
+    font-size: 20px;
+    margin:auto 5%;
+    padding: 2%;
+}
+
+/* form design */
+#submitBtn {
+    background-color: rgb(236, 245, 58);
+    border: none;
+    font-size: 100%;
+    font-weight: bold;
+    margin: 5px;
+    padding:5px;
+}
+
+#retryBtn {
+    background-color: rgb(85, 170, 250);
+    border: none;
+    font-size: 100%;
+    font-weight: bold;
+    margin: 5px;
+    padding: 5px;
+}
+
+footer {
+    text-align: center;
+    width: 100%;
+    position: fixed;
+
+}

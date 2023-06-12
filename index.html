@@ -3,75 +3,92 @@
 <head>
     <title>Coding Quiz</title>
     <link rel="stylesheet" href="./assets/style.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tilt+Prism&display=swap" rel="stylesheet">
+    
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="UTF-8">
 </head>
 <body>
+<!-- View High Scores -->
+<section class="container" id="highScores">
+    <button popovertarget="popover" id="popBtn">View High Scores</button>
+        <table popover id="popover">
+                <tr>
+                    <th></th>
+                    <th>Initals</th>
+                    <th>Time Remaining (s)</th>
+                </tr>
+                <tr>
+                    <td id="first">1st &#128035;</td>
+                    <td id="firstInitial"></td>
+                    <td id="firstScore"></td>
+                </tr>
+                <tr>
+                    <td id="second">2nd &#128036;</td>
+                    <td id="secondInitial"></td>
+                    <td id="secondScore"></td>
+                </tr>
+                <tr>
+                    <td id="third">3rd &#128037;</td>
+                    <td id="thirdInitial"></td>
+                    <td id="thirdScore"></td>
+                </tr>
+        </table>    
+</section>  
+      
+
 <!-- Start Quiz -->
     <section class="start">
         <h1>Coding Quiz Challenge</h1>
         <h3>Try to complete all the questions correctly within the allotted time!</h3>
-        <h4>Be careful! Time will be subtracted in live time for each wrong answer!</h4>
+        <h4>Be careful!! 5 seconds will be subtracted for each wrong answer!</h4><br>
         <button class="start" id="startBtn">Start Quiz!</button>
     </section>
-<!-- View High Scores -->
-    <section class="container" id="highScores">
-        <button popovertarget="popover">View High Scores</button>
-            <table popover id="popover">
-                    <tr>
-                        <th></th>
-                        <th>Initals</th>
-                        <th>Time</th>
-                    </tr>
-                    <tr>
-                        <td id="first">1st </td>
-                        <td id="firstInitial"></td>
-                        <td id="firstScore"></td>
-                    </tr>
-                    <tr>
-                        <td id="second">2nd </td>
-                        <td id="secondInitial"></td>
-                        <td id="secondScore"></td>
-                    </tr>
-                    <tr>
-                        <td id="third">3rd </td>
-                        <td id="thirdInitial"></td>
-                        <td id="thirdScore"></td>
-                    </tr>
-            </table>    
-    </section>  
-    <div id="score">
-        <form id="scoreData">
-            <label for="initials">Initials:</label><br>
-            <input 
-                type="text" 
-                id="initials" 
-                name="initials" 
-                value=""><br>
-            <label for="time">Final Time: 
-                <span id="timeText" name="timeText" value="">
-                </span>
-            </label><br>
-            <button type="submit" class="button" id="submitBtn" onclick="saveHighScore(event)">Save</button>
-            <button type="reset" class="button" id="retryBtn">Retry</button>
-        </form> 
-    </div>      
+
+<!--Score Board  -->
+<section id="score">
+    <form id="scoreData">
+        <label for="initials">Initials:</label><br>
+        <input 
+            type="text" 
+            id="initials" 
+            name="initials" 
+            value=""><br>
+        <br>
+        <label for="time">Time Remaining: 
+            <span id="timeText" name="timeText" value="">
+            </span> Seconds
+        </label>
+        <br>
+        <br>
+        <button type="submit" class="button" id="submitBtn" onclick="saveHighScore(event)">Save</button>
+        <button type="reset" class="button" id="retryBtn">Retry</button>
+    </form>
+    <br>
+</section>
+
 <!-- Questions and Countdown Timer -->
-    <section class="container">
-            <div id="quiz">
+    <section class="container" id="quiz">
                 <div id="question"></div>
                 <div id="choices">
                     <button class="choice" id="A" onclick="checkAnswer('A')"></button>
                     <button class="choice" id="B" onclick="checkAnswer('B')"></button>
                     <button class="choice" id="C" onclick="checkAnswer('C')"></button>
                 </div>
+                <br>
                 <div id="check"></div>
+                <br>
                 <div id="timer">
                     <div id="counter"></div>
                 </div>
-            </div>
     </section>
+
 <!-- JavaScript Files -->
     <script src="./assets/script.js"></script>
 </body>
+<br>
+<footer>Copyright &#169 2023 Mackenzie Murphey</footer>
 </html>

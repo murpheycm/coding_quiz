@@ -11,22 +11,40 @@ const form = document.getElementById("score");
 //Questions:
 let questions = [
     {
-        question : "What does HTML stand for?",
-        choiceA : "Correct",
-        choiceB : "Wrong",
-        choiceC : "Wrong",
-        correct : "A"
-    },{
-        question : "What does CSS stand for?",
-        choiceA : "Wrong",
-        choiceB : "Correct",
-        choiceC : "Wrong",
+        question : "Inside which HTML element do we put the JavaScript?",
+        choiceA : "< " + "js" + " >",
+        choiceB : "< " + "script" + " >",
+        choiceC : "< " + "javascript" + " >",
         correct : "B"
     },{
-        question : "What does JS stand for?",
-        choiceA : "Wrong",
-        choiceB : "Wrong",
-        choiceC : "Correct",
+        question : "Where is the correct place to insert a JavaScript?",
+        choiceA : "The < head > section",
+        choiceB : "The < body > section",
+        choiceC : "The < footer > section",
+        correct : "B"
+    },{
+        question : "The external JavaScript file must contain the < script > tag.",
+        choiceA : "True",
+        choiceB : "False",
+        choiceC : "Just subtract 5 :'(",
+        correct : "B"
+    },{
+        question : "How do you write 'string' in an alert box?",
+        choiceA : "alert();",
+        choiceB : "alertBox();",
+        choiceC : "prompt();",
+        correct : "A"
+    },{
+        question : "How do you create a function in JavaScript?",
+        choiceA : "function = myFunction();",
+        choiceB : "function myFunction()",
+        choiceC : "function myFunction() {}",
+        correct : "C"
+    },{
+        question : "How do you call a function named 'myFunction'?",
+        choiceA : "call myFunction()",
+        choiceB : "function myFunction()",
+        choiceC : "myFunction()",
         correct : "C"
     }
 ];
@@ -43,6 +61,7 @@ function startPage () {
   document.getElementById('B').hidden = true;
   document.getElementById('C').hidden = true;
   document.getElementById('score').hidden = true;
+  document.getElementById('quiz').hidden = true;
 }
 
 
@@ -66,6 +85,8 @@ function startQuiz(){
     document.getElementById('A').hidden = false;
     document.getElementById('B').hidden = false;
     document.getElementById('C').hidden = false;
+    document.getElementById('quiz').hidden = false;
+    document.getElementById('startBtn').hidden=true;
 };
 
 //Countdown
@@ -141,11 +162,9 @@ retryBtn.addEventListener("click",restartQuiz);
 //Clear page on load
 window.addEventListener('load',startPage);
 
-
 //Saving scores to local storage and sorting highscores
 const initials = document.getElementById('initials');
 const finalScoreText = document.getElementById('timeText');
-
 
 const saveHighScore = (event) => {
     const score = {
@@ -160,14 +179,14 @@ const saveHighScore = (event) => {
 //Rendering highscores from the local storage and displaying in the popover
 const highScores = JSON.parse(localStorage.getItem('highScores')) || [];
 
-//1st place
+//Dislay 1st place
 document.getElementById("firstInitial").textContent = highScores[0].name;
 document.getElementById("firstScore").textContent = highScores[0].scoreTime;
 
-//2nd place
+//Display 2nd place
 document.getElementById("secondInitial").textContent = highScores[1].name;
 document.getElementById("secondScore").textContent = highScores[1].scoreTime;
 
-//3rd place
+//Display 3rd place
 document.getElementById("thirdInitial").textContent = highScores[2].name;
 document.getElementById("thirdScore").textContent = highScores[2].scoreTime;
