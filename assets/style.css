@@ -103,12 +103,24 @@ tr:nth-child(even) {
     padding: 1%;
 }
 
+#A:hover {
+    background-color: rgb(231, 67, 12);
+    color: azure;
+    transform: rotateZ(-10deg);
+}
+
 #B {
     background-color: rgb(88, 184, 89);
     border: none;
     font-size: 100%;
     margin: 1%;
     padding: 1%;
+}
+
+#B:hover {
+    background-color: rgb(2, 132, 17);
+    color: azure;
+    /* transform: rotateZ(10deg); */
 }
 
 #C {
@@ -118,6 +130,16 @@ tr:nth-child(even) {
     margin: 1%;
     padding: 1%;
 }
+
+#C:hover {
+    background-color: rgb(2, 76, 132);
+    color: azure;
+    transform: rotateZ(10deg);
+}
+
+
+
+
 
 #choices {
     display: block;
