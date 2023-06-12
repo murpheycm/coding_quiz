@@ -1,5 +1,4 @@
 // Quiz constants
-
 const start = document.getElementById("start");
 const quiz = document.getElementById("quiz");
 const question = document.getElementById("question");
@@ -7,12 +6,6 @@ const choiceA = document.getElementById("A");
 const choiceB = document.getElementById("B");
 const choiceC = document.getElementById("C");
 const counter = document.getElementById("counter");
-// const timeGauge = document.getElementById("timeGauge");
-// const scoreDiv = document.getElementById("scoreContainer");
-// const lastQuestion = questions.length - 1;
-// let runningQuestion = 0;
-// let count = 60;
-// let TIMER;
 
 //Questions:
 let questions = [
@@ -43,8 +36,6 @@ let runningQuestion = 0;
 let count = 60;
 let TIMER;
 
-
-
 //Display question
 function renderQuestion(){
     let q = questions[runningQuestion];
@@ -54,7 +45,7 @@ function renderQuestion(){
     choiceB.innerHTML = q.choiceB;
     choiceC.innerHTML = q.choiceC;
 
-    check.innerHTML=" ";
+    check.innerHTML="";
 };
 
 //Start --> Display first question and start timer
@@ -92,7 +83,7 @@ function answerIsWrong(){
   count-=5;
 };
 
-//Check answer loop function
+//Check answer loop function; loop to progress questions after click event and remove elements at end.
 function checkAnswer(answer){
     if( answer == questions[runningQuestion].correct){
         answerIsCorrect();
@@ -102,16 +93,18 @@ function checkAnswer(answer){
 
     if(runningQuestion < lastQuestion){
         runningQuestion++;
-        setTimeout(renderQuestion, 1000);
+        setTimeout(renderQuestion, 500);
     }else{
-        finalScore();
+      finalScore();
+      quiz.remove();
+      startBtn.remove();
     };
 };
 
 //Render final score in the form element
 function finalScore () {
-  document.getElementById('timeText').innerHTML = count;
   clearInterval(TIMER);
+  document.getElementById('timeText').innerHTML = count;
 };
 
 //Restart quiz function to reload page
@@ -128,12 +121,9 @@ retryBtn.addEventListener("click",restartQuiz);
 
 //Saving scores to local storage and sorting highscores to choose top 3
 const initials = document.getElementById('initials');
-// const saveScoreBtn = document.getElementById('submitBtn');
+const saveScoreBtn = document.getElementById('submitBtn');
 const finalScoreText = document.getElementById('timeText');
 
-// const highScores = JSON.parse(localStorage.getItem('highScores')) || [];
-
-const MAX_HIGH_SCORES = highScores.splice(3);
 
 const saveHighScore = (e) => {
     const score = {
@@ -142,6 +132,13 @@ const saveHighScore = (e) => {
     };
     highScores.push(score);
     highScores.sort();
-
+    // const MAX_HIGH_SCORES = highScores.splice(3);
     localStorage.setItem('highScores', JSON.stringify(highScores));
+
+    const highScoreList = {
+      scoreList: highScores.value,
+    }
+    scoreList.sort();
 };
+
+const highScores = JSON.parse(localStorage.getItem('highScores')) || [];
