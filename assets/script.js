@@ -116,7 +116,7 @@ function checkAnswer(answer){
       }
       document.getElementById('score').hidden = false;
       finalScore();
-      setTimeout(removeQuiz,2000);
+      setTimeout(removeQuiz,1000);
       startBtn.remove();
     };
 };
@@ -148,20 +148,16 @@ const saveScoreBtn = document.getElementById('submitBtn');
 const finalScoreText = document.getElementById('timeText');
 
 
-const saveHighScore = (e) => {
+const saveHighScore = (event) => {
     const score = {
         scoreTime: finalScoreText.textContent,
         name: initials.value,
     };
     highScores.push(score);
-    highScores.sort();
-    // const MAX_HIGH_SCORES = highScores.splice(3);
+    highScores.sort((a, b) => b.scoreTime - a.scoreTime);
     localStorage.setItem('highScores', JSON.stringify(highScores));
-
-    const highScoreList = {
-      scoreList: highScores.value,
-    }
-    scoreList.sort();
 };
 
 const highScores = JSON.parse(localStorage.getItem('highScores')) || [];
+
+console.log(highScores);
