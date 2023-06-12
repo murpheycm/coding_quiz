@@ -142,9 +142,8 @@ retryBtn.addEventListener("click",restartQuiz);
 window.addEventListener('load',startPage);
 
 
-//Saving scores to local storage and sorting highscores to choose top 3
+//Saving scores to local storage and sorting highscores
 const initials = document.getElementById('initials');
-const saveScoreBtn = document.getElementById('submitBtn');
 const finalScoreText = document.getElementById('timeText');
 
 
@@ -156,8 +155,19 @@ const saveHighScore = (event) => {
     highScores.push(score);
     highScores.sort((a, b) => b.scoreTime - a.scoreTime);
     localStorage.setItem('highScores', JSON.stringify(highScores));
-};
+  };
 
+//Rendering highscores from the local storage and displaying in the popover
 const highScores = JSON.parse(localStorage.getItem('highScores')) || [];
 
-console.log(highScores);
+//1st place
+document.getElementById("firstInitial").textContent = highScores[0].name;
+document.getElementById("firstScore").textContent = highScores[0].scoreTime;
+
+//2nd place
+document.getElementById("secondInitial").textContent = highScores[1].name;
+document.getElementById("secondScore").textContent = highScores[1].scoreTime;
+
+//3rd place
+document.getElementById("thirdInitial").textContent = highScores[2].name;
+document.getElementById("thirdScore").textContent = highScores[2].scoreTime;
