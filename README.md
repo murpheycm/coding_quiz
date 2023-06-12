@@ -19,6 +19,6 @@
 * THEN I can save my initials and score
 
 # URL
-## 
+## https://murpheycm.github.io/coding_quiz/
 
 ![Alt text](images/screenshot.jpg)
