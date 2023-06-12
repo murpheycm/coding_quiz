@@ -6,6 +6,7 @@ const choiceA = document.getElementById("A");
 const choiceB = document.getElementById("B");
 const choiceC = document.getElementById("C");
 const counter = document.getElementById("counter");
+const form = document.getElementById("score");
 
 //Questions:
 let questions = [
@@ -36,6 +37,15 @@ let runningQuestion = 0;
 let count = 60;
 let TIMER;
 
+//Initial start page to remove buttons
+function startPage () {
+  document.getElementById('A').hidden = true;
+  document.getElementById('B').hidden = true;
+  document.getElementById('C').hidden = true;
+  document.getElementById('score').hidden = true;
+}
+
+
 //Display question
 function renderQuestion(){
     let q = questions[runningQuestion];
@@ -53,6 +63,9 @@ function startQuiz(){
     renderQuestion();
     renderCounter();
     TIMER = setInterval(renderCounter,1000); // 1000ms = 1s
+    document.getElementById('A').hidden = false;
+    document.getElementById('B').hidden = false;
+    document.getElementById('C').hidden = false;
 };
 
 //Countdown
@@ -95,8 +108,15 @@ function checkAnswer(answer){
         runningQuestion++;
         setTimeout(renderQuestion, 500);
     }else{
+      document.getElementById("A").disabled = true;
+      document.getElementById("B").disabled = true;
+      document.getElementById("C").disabled = true;
+      function removeQuiz(){
+        quiz.remove();
+      }
+      document.getElementById('score').hidden = false;
       finalScore();
-      quiz.remove();
+      setTimeout(removeQuiz,2000);
       startBtn.remove();
     };
 };
@@ -117,6 +137,9 @@ startBtn.addEventListener("click",startQuiz);
 
 //Restart Quiz --> retry button
 retryBtn.addEventListener("click",restartQuiz);
+
+//Clear page on load
+window.addEventListener('load',startPage);
 
 
 //Saving scores to local storage and sorting highscores to choose top 3
