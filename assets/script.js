@@ -9,6 +9,10 @@ const choiceC = document.getElementById("C");
 const counter = document.getElementById("counter");
 // const timeGauge = document.getElementById("timeGauge");
 // const scoreDiv = document.getElementById("scoreContainer");
+// const lastQuestion = questions.length - 1;
+// let runningQuestion = 0;
+// let count = 60;
+// let TIMER;
 
 //Questions:
 let questions = [
@@ -33,11 +37,12 @@ let questions = [
     }
 ];
 
-//Quiz variables
+// Quiz and Countdown variables
 const lastQuestion = questions.length - 1;
 let runningQuestion = 0;
 let count = 60;
 let TIMER;
+
 
 
 //Display question
@@ -99,17 +104,44 @@ function checkAnswer(answer){
         runningQuestion++;
         setTimeout(renderQuestion, 1000);
     }else{
-      // setTimeout(() => {
         finalScore();
-      // }, 1000);
     };
 };
 
+//Render final score in the form element
 function finalScore () {
   document.getElementById('timeText').innerHTML = count;
   clearInterval(TIMER);
-}
+};
 
+//Restart quiz function to reload page
+function restartQuiz() {
+  location.reload();
+};
 
+//Start Quiz --> start button
 startBtn.addEventListener("click",startQuiz);
 
+//Restart Quiz --> retry button
+retryBtn.addEventListener("click",restartQuiz);
+
+
+//Saving scores to local storage and sorting highscores to choose top 3
+const initials = document.getElementById('initials');
+// const saveScoreBtn = document.getElementById('submitBtn');
+const finalScoreText = document.getElementById('timeText');
+
+// const highScores = JSON.parse(localStorage.getItem('highScores')) || [];
+
+const MAX_HIGH_SCORES = highScores.splice(3);
+
+const saveHighScore = (e) => {
+    const score = {
+        scoreTime: finalScoreText.textContent,
+        name: initials.value,
+    };
+    highScores.push(score);
+    highScores.sort();
+
+    localStorage.setItem('highScores', JSON.stringify(highScores));
+};
