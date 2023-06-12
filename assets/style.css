@@ -3,7 +3,6 @@ body {
     background-color: rgb(4, 70, 70);
     color: rgb(236, 236, 236);
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-
 }
 .start {
     text-align: center;
@@ -44,7 +43,6 @@ body {
 #highScores {
     background-color: whitesmoke;
 }
-
 
 /* High Score Table Popover Design */
 table {
@@ -120,7 +118,6 @@ tr:nth-child(even) {
 #B:hover {
     background-color: rgb(2, 132, 17);
     color: azure;
-    /* transform: rotateZ(10deg); */
 }
 
 #C {
@@ -136,10 +133,6 @@ tr:nth-child(even) {
     color: azure;
     transform: rotateZ(10deg);
 }
-
-
-
-
 
 #choices {
     display: block;
@@ -173,5 +166,4 @@ footer {
     text-align: center;
     width: 100%;
     position: fixed;
-
 }
